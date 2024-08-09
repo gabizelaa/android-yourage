@@ -1,6 +1,7 @@
 package br.com.fiap.minhaidade
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -18,6 +19,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -51,6 +55,13 @@ fun MeuComponentePreview() {
 
 @Composable
 fun CounterScreen() {
+
+    var idade = remember {
+        mutableStateOf(0)
+    }
+    val maxIdade = 130;
+    val minIdade = 0;
+
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -67,14 +78,16 @@ fun CounterScreen() {
         )
         Spacer(modifier = Modifier.height(32.dp))
         Text(
-            text = "21",
+            text = "${idade.value}",
             fontSize = 48.sp,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(32.dp))
         Row() {
             Button(
-                onClick = {},
+                onClick = {
+                    if (idade.value > minIdade) idade.value--
+                },
                 modifier = Modifier.size(84.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(Color(0xFFAD1F4E))
@@ -83,13 +96,25 @@ fun CounterScreen() {
             }
             Spacer(modifier = Modifier.width(32.dp))
             Button(
-                onClick = {},
+                onClick = {
+                    if (idade.value < maxIdade) idade.value++
+
+                },
                 modifier = Modifier.size(84.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(Color(0xFFAD1F4E))
             ) {
                 Text(text = "+", fontSize = 40.sp)
             }
+        }
+        Spacer(modifier = Modifier.height(45.dp))
+        Row() {
+            Text(
+                text = "Você é ${if (idade.value >= 18) "MAIOR" else "MENOR"} de idade!",
+                fontSize = 26.sp,
+                color = Color(0xFFAD1F4E),
+                fontWeight = FontWeight.Bold
+            )
         }
     }
 }
