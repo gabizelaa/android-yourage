@@ -1,13 +1,14 @@
 
 # Qual a sua idade?
 
-•Neste repositório, desenvolvi uma aplicação em Kotlin, com Jetpack Compose.
-
-•A finalidade é o usuário informar a sua idade, utilizando 2 botões, um para incrementar a idade e outro para decrementar.
+•A finalidade da aplicação é o usuário informar a sua idade, utilizando 2 botões, um para incrementar a idade e outro para decrementar.
 
 •O aplicativo informa ao final se o usuário é menor ou maior de idade.
 
 •Há um limite, de 0 a 130 anos.
+
+💻 Tecnologias utilizadas:
+Kotlin com Jetpack Compose
 
  ## Demonstração
  
