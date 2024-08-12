@@ -7,7 +7,7 @@
 
 •Há um limite, de 0 a 130 anos.
 
-💻 Tecnologias utilizadas:
+## 💻 Tecnologias utilizadas:
 Kotlin com Jetpack Compose
 
  ## Demonstração
